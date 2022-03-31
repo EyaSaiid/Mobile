@@ -34,6 +34,11 @@ Resources res;
 
         Button btnStat = new Button("Statistique Restaurant");
         
+        Button btnAddTask7 = new Button("Liste Categorie");
+         btnAddTask7.addActionListener(e-> new ListCategorieBack(current).show());
+         Button btnAddTask8 = new Button("Ajouter Categorie");
+         btnAddTask7.addActionListener(e-> new Back_AjoutCategoriePlat(current).show());
+        
         btnAddTask.addActionListener(e-> new ListRestaurant(current).show());
         btnAddTasks2.addActionListener(e-> new AjouterReservation(current).show());
         btnStat.addActionListener(e-> new Front_StatCategorie(res,current).show());
@@ -43,7 +48,7 @@ Resources res;
         btnAddTask5.addActionListener(e-> new ListRestaurant(current).show());
 
 if ( Sessionuser.getRole().equalsIgnoreCase("[ROLE_ADMIN]")) {
-        addAll(btnAddTask,btnAddTasks2,btnStat,btnAddTasks3,btnAddTasks4,btnAddTask5);
+        addAll(btnAddTask,btnAddTasks2,btnStat,btnAddTasks3,btnAddTasks4,btnAddTask5,btnAddTask7,btnAddTask8);
 
 }
    else{

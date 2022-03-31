@@ -18,8 +18,8 @@ public class Categorie {
         this.nom_categorie = nom_categorie;
     }
 
-    public Categorie(int id_categorie, String nom_categorie) {
-        this.id_categorie = id_categorie;
+    public Categorie( String nom_categorie) {
+        
         this.nom_categorie = nom_categorie;
     }
     

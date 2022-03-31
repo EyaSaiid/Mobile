@@ -97,4 +97,47 @@ public class CatgeorieService {
         NetworkManager.getInstance().addToQueueAndWait(req);
         return categories;
     }
+       public boolean addCategorie(Categorie c) {
+        String url = Statics.BASE_URL + "/categorie/addCategorieJSON"+"?nom_categorie="+c.getNom_categorie(); 
+        req.setUrl(url);// Insertion de l'URL de notre demande de connexion
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this); //Supprimer cet actionListener
+                
+
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return resultOK;
+    }
+       public boolean deleteCategorie(int id) {
+        String url = Statics.BASE_URL + "/categorie/deleteCategorieJSON"+"/"+id;
+        req.setUrl(url);// Insertion de l'URL de notre demande de connexion
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this); //Supprimer cet actionListener
+                
+
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return resultOK;
+    }
+        public boolean updateCategorie(Categorie c) {
+        String url = Statics.BASE_URL + "/categorie/updateCategorieJSON"+"/"+c.getId_categorie()+"?nom_categorie="+c.getNom_categorie();
+        req.setUrl(url);// Insertion de l'URL de notre demande de connexion
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this); //Supprimer cet actionListener
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return resultOK;
+    }
 }
